@@ -25,10 +25,12 @@ namespace Galgje
             InitializeComponent();
         }
 
-        public string raadWoord;
+        public string geheimeWoord;
+        public string raadPoging;
         public string foutLetters;
         public string juistLetters;
         public int levens;
+        public bool spelBegonnen;
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -39,13 +41,13 @@ namespace Galgje
         {
             TxtBInfo.Text = "Geef een geheim woord in:";
             TxtInput.Clear();
-            BtnNieuwSpel.IsEnabled = true;
-            BtnRaad.IsEnabled = true;
-            BtnVerbergWoord.IsEnabled = true;
+            BtnRaad.Visibility = Visibility.Hidden;
+            BtnNieuwSpel.Visibility = Visibility.Hidden;
             BtnVerbergWoord.Visibility = Visibility.Visible;
             levens = 10;
-            juistLetters = "";
-            foutLetters = "";
+            geheimeWoord = string.Empty;
+            juistLetters = string.Empty;
+            foutLetters = string.Empty;
         }
 
         public void RaadStatus()
@@ -56,43 +58,91 @@ namespace Galgje
             }
             else
             {
-                raadWoord = TxtInput.Text.ToLower();
+                geheimeWoord = TxtInput.Text.ToLower();
                 TxtInput.Clear();
                 BtnVerbergWoord.Visibility = Visibility.Hidden;
                 TxtBInfo.Text = $"{levens} Levens\nJuiste letters {juistLetters}\nFoute letters {foutLetters}";
             }
         }
 
-        public void LetterOfWoord()
+        public void LetterGeraden()
         {
-            int lengteInput = TxtInput.Text.Length;
-        }
+            char[] lettersGeheimWoord = geheimeWoord.ToCharArray();
+            bool letterIsInWoord = false;
 
-        public void RaadPoging()
-        {
-            if (TxtInput.Text != raadWoord)
+
+            foreach (char c in lettersGeheimWoord)
             {
-                --levens;
-                if (foutLetters == "")
+                //hier geeft de app een error als de user geen input voert in het textbox
+                if (c.Equals(Convert.ToChar(raadPoging)))
                 {
-                    foutLetters += $"{TxtInput.Text}";
+                    letterIsInWoord = true;
+                }
+            }
+
+            if (letterIsInWoord)
+            {
+                if (juistLetters == "")
+                {
+                    juistLetters += $"{raadPoging}";
                 }
                 else
                 {
-                    foutLetters += $",{TxtInput.Text}";
+                    juistLetters += $",{raadPoging}";
                 }
                 TxtInput.Clear();
                 TxtBInfo.Text = $"{levens} Levens\nJuiste letters {juistLetters}\nFoute letters {foutLetters}";
             }
-            else if (TxtInput.Text == raadWoord)
+            else
             {
-                MessageBox.Show("Gefeliciteerd!\nje hebt juist geraden");
-                InitSpel();
+                --levens;
+                if (foutLetters == "")
+                {
+                    foutLetters += $"{raadPoging}";
+                }
+                else
+                {
+                    foutLetters += $",{raadPoging}";
+                }
+                TxtInput.Clear();
+                TxtBInfo.Text = $"{levens} Levens\nJuiste letters {juistLetters}\nFoute letters {foutLetters}";
             }
-            if (levens < 1)
+        }
+
+        public void RaadPoging()
+        {
+            raadPoging = TxtInput.Text;
+
+            if (raadPoging.Length > 1)
             {
-                MessageBox.Show("Je hebt verloren");
-                InitSpel();
+                if (raadPoging != geheimeWoord)
+                {
+                    --levens;
+                    if (foutLetters == "")
+                    {
+                        foutLetters += $"{raadPoging}";
+                    }
+                    else
+                    {
+                        foutLetters += $",{raadPoging}";
+                    }
+                    TxtInput.Clear();
+                    TxtBInfo.Text = $"{levens} Levens\nJuiste letters {juistLetters}\nFoute letters {foutLetters}";
+                }
+                else if (raadPoging == geheimeWoord)
+                {
+                    MessageBox.Show("Gefeliciteerd!\nje hebt juist geraden");
+                    InitSpel();
+                }
+                if (levens < 1)
+                {
+                    MessageBox.Show("Je hebt verloren");
+                    InitSpel();
+                }
+            }
+            else
+            {
+                LetterGeraden();
             }
         }
 
@@ -110,7 +160,16 @@ namespace Galgje
 
         private void BtnVerbergWoord_Click(object sender, RoutedEventArgs e)
         {
-            RaadStatus();
+            if (TxtInput.Text.Length > 1)
+            {
+                RaadStatus();
+                BtnRaad.Visibility = Visibility.Visible;
+                BtnNieuwSpel.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                MessageBox.Show("Vul een woord in om het spel te beginnen");
+            }
         }
 
     }
