@@ -7,11 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="Gold" Loaded="Window_Loaded">
     <Grid>
-        <TextBox Name="TxtInput" HorizontalAlignment="Left" Height="74" Margin="31,328,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="434" FontSize="30px" TextAlignment="Center" VerticalContentAlignment="Center" FontFamily="Consolas" Foreground="RoyalBlue"  Background="Gold" BorderBrush="RoyalBlue" BorderThickness="5px" Focusable="True"/>
+        <TextBox Name="TxtInput" HorizontalAlignment="Left" Height="74" Margin="31,328,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="434" FontSize="30px" TextAlignment="Center" VerticalContentAlignment="Center" FontFamily="Consolas" Foreground="RoyalBlue"  Background="Gold" BorderBrush="RoyalBlue" BorderThickness="5px"/>
         <Button x:Name="BtnRaad" Content="Raad" Cursor="Hand" HorizontalAlignment="Left" Height="72" Margin="540,162,0,0" VerticalAlignment="Top" Width="213" FontFamily="Consolas" Foreground="RoyalBlue"  Background="Gold" BorderBrush="RoyalBlue" BorderThickness="5px" FontSize="20px" FontWeight="Bold" Click="BtnRaad_Click"/>
         <Button x:Name="BtnNieuwSpel" Cursor="Hand" Content="Nieuwe Spel" HorizontalAlignment="Left" Height="72" Margin="540,243,0,0" VerticalAlignment="Top" Width="213" FontFamily="Consolas" Foreground="RoyalBlue"  Background="Gold" BorderBrush="RoyalBlue" BorderThickness="5px" FontSize="20px" FontWeight="Bold" Click="BtnNieuwSpel_Click"/>
         <Button x:Name="BtnVerbergWoord" Cursor="Hand" Content="Verberg Woord" HorizontalAlignment="Left" Height="72" Margin="540,327,0,0" VerticalAlignment="Top" Width="213" FontFamily="Consolas" Foreground="RoyalBlue"  Background="Gold" BorderBrush="RoyalBlue" BorderThickness="5px" FontSize="20px" FontWeight="Bold" Click="BtnVerbergWoord_Click"/>
         <TextBlock Name="TxtBInfo" TextAlignment="Center" FontSize="30px" HorizontalAlignment="Left" Height="186" Margin="31,129,0,0" TextWrapping="Wrap" Text="Geef een geheim woord in:" FontWeight="Bold" FontFamily="Consolas" Foreground="RoyalBlue" VerticalAlignment="Top" Width="434"/>
+        <Image x:Name="ImgMan" HorizontalAlignment="Left" Height="152" Margin="540,10,0,0" VerticalAlignment="Top" Width="85" Source="F:\OefeningenC#Essentials\Galgje\Galgje\Assets\10.jpg"/>
 
     </Grid>
 </Window>

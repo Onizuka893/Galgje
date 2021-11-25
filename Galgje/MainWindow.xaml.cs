@@ -43,7 +43,9 @@ namespace Galgje
             TxtInput.Clear();
             BtnRaad.Visibility = Visibility.Hidden;
             BtnNieuwSpel.Visibility = Visibility.Hidden;
+            ImgMan.Visibility = Visibility.Hidden;
             BtnVerbergWoord.Visibility = Visibility.Visible;
+            TxtInput.Focus();
             levens = 10;
             geheimeWoord = string.Empty;
             juistLetters = string.Empty;
@@ -61,6 +63,7 @@ namespace Galgje
                 geheimeWoord = TxtInput.Text.ToLower();
                 TxtInput.Clear();
                 BtnVerbergWoord.Visibility = Visibility.Hidden;
+                ImgMan.Visibility = Visibility.Visible;
                 TxtBInfo.Text = $"{levens} Levens\nJuiste letters {juistLetters}\nFoute letters {foutLetters}";
             }
         }
@@ -69,18 +72,26 @@ namespace Galgje
         {
             char[] lettersGeheimWoord = geheimeWoord.ToCharArray();
             bool letterIsInWoord = false;
+            char charRaadPoging;
+            bool convToChar = char.TryParse(raadPoging, out charRaadPoging);
 
-
-            foreach (char c in lettersGeheimWoord)
+            if (convToChar)
             {
-                //hier geeft de app een error als de user geen input voert in het textbox
-                if (c.Equals(Convert.ToChar(raadPoging)))
+                foreach (char c in lettersGeheimWoord)
                 {
-                    letterIsInWoord = true;
+                    if (c.Equals(charRaadPoging))
+                    {
+                        letterIsInWoord = true;
+                    }
                 }
             }
+            else if (!convToChar)
+            {
+                MessageBox.Show("Geef een letter of woord in");
+            }
 
-            if (letterIsInWoord)
+
+            if (letterIsInWoord && convToChar)
             {
                 if (juistLetters == "")
                 {
@@ -93,7 +104,7 @@ namespace Galgje
                 TxtInput.Clear();
                 TxtBInfo.Text = $"{levens} Levens\nJuiste letters {juistLetters}\nFoute letters {foutLetters}";
             }
-            else
+            else if (!letterIsInWoord && convToChar)
             {
                 --levens;
                 if (foutLetters == "")
@@ -134,11 +145,6 @@ namespace Galgje
                     MessageBox.Show("Gefeliciteerd!\nje hebt juist geraden");
                     InitSpel();
                 }
-                if (levens < 1)
-                {
-                    MessageBox.Show("Je hebt verloren");
-                    InitSpel();
-                }
             }
             else
             {
@@ -146,6 +152,52 @@ namespace Galgje
             }
         }
 
+        private BitmapImage ImgSource(int imgNumber)
+        {
+            return new BitmapImage(new Uri($@"F:\OefeningenC#Essentials\Galgje\Galgje\Assets\{imgNumber}.jpg", UriKind.Absolute));
+        }
+
+        private void ManWordGehangen()
+        {
+            switch (levens)
+            {
+                case 10:
+                    ImgMan.Source = ImgSource(levens);
+                    break;
+                case 9:
+                    ImgMan.Source = ImgSource(levens);
+                    break;
+                case 8:
+                    ImgMan.Source = ImgSource(levens);
+                    break;
+                case 7:
+                    ImgMan.Source = ImgSource(levens);
+                    break;
+                case 6:
+                    ImgMan.Source = ImgSource(levens);
+                    break;
+                case 5:
+                    ImgMan.Source = ImgSource(levens);
+                    break;
+                case 4:
+                    ImgMan.Source = ImgSource(levens);
+                    break;
+                case 3:
+                    ImgMan.Source = ImgSource(levens);
+                    break;
+                case 2:
+                    ImgMan.Source = ImgSource(levens);
+                    break;
+                case 1:
+                    ImgMan.Source = ImgSource(levens);
+                    break;
+                case 0:
+                    ImgMan.Source = ImgSource(levens);
+                    break;
+                default:
+                    break;
+            }
+        }
 
 
         private void BtnNieuwSpel_Click(object sender, RoutedEventArgs e)
@@ -156,6 +208,13 @@ namespace Galgje
         private void BtnRaad_Click(object sender, RoutedEventArgs e)
         {
             RaadPoging();
+            ManWordGehangen();
+            if (levens < 1)
+            {
+                MessageBox.Show($"Je hebt verloren\nHet juiste woord was: {geheimeWoord}");
+                InitSpel();
+            }
+            TxtInput.Focus();
         }
 
         private void BtnVerbergWoord_Click(object sender, RoutedEventArgs e)
@@ -170,6 +229,7 @@ namespace Galgje
             {
                 MessageBox.Show("Vul een woord in om het spel te beginnen");
             }
+            TxtInput.Focus();
         }
 
     }
