@@ -402,54 +402,7 @@ namespace Galgje
             return new string(arraySterren);
         }
 
-        private void RefreshKeyboard(bool gebruik)
-        {
-            // Deze methode zorgt ervoor dat het toetsenbord terugkeert naar zijn originele kleur
-            // en aandehand van het bool gebruik worden de knoppen enabled of disabled.
-
-            foreach (Button b in KeyboardRow1.Children)
-            {
-                b.IsHitTestVisible = gebruik;
-                b.Background = Brushes.Black;
-                b.BorderBrush = Brushes.Black;
-            }
-            foreach (Button b in KeyboardRow2.Children)
-            {
-                b.IsHitTestVisible = gebruik;
-                b.Background = Brushes.Black;
-                b.BorderBrush = Brushes.Black;
-            }
-            foreach (Button b in KeyboardRow3.Children)
-            {
-                b.IsHitTestVisible = gebruik;
-                b.Background = Brushes.Black;
-                b.BorderBrush = Brushes.Black;
-            }
-            foreach (Button b in KeyboardRow4.Children)
-            {
-                b.IsHitTestVisible = gebruik;
-                b.Background = Brushes.Black;
-                b.BorderBrush = Brushes.Black;
-            }
-            foreach (Button b in KeyboardRow5.Children)
-            {
-                b.IsHitTestVisible = gebruik;
-                b.Background = Brushes.Black;
-                b.BorderBrush = Brushes.Black;
-            }
-            foreach (Button b in KeyboardRow6.Children)
-            {
-                b.IsHitTestVisible = gebruik;
-                b.Background = Brushes.Black;
-                b.BorderBrush = Brushes.Black;
-            }
-            foreach (Button b in KeyboardRow7.Children)
-            {
-                b.IsHitTestVisible = gebruik;
-                b.Background = Brushes.Black;
-                b.BorderBrush = Brushes.Black;
-            }
-        }
+        
 
         private void EindSpelScherm(bool gewonnenCheck)
         {
