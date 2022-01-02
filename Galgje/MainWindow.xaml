@@ -98,48 +98,7 @@
             <Button x:Name="BtnRaad" Background="Black" Foreground="White" FontWeight="Bold" FontSize="18"  Content="raad" Height="50" Margin="10" Click="BtnRaad_Click" Style="{DynamicResource ButtonWpfStyle}"/>
         </StackPanel>
 
-        <WrapPanel Grid.Column="2">
-            <StackPanel Name="KeyboardRow1">
-                <Button Content="A" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-                <Button Content="B" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-                <Button Content="C" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-                <Button Content="D" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-            </StackPanel>
-            <StackPanel Name="KeyboardRow2">
-                <Button Content="E" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-                <Button Content="F" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-                <Button Content="G" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-                <Button Content="H" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-            </StackPanel>
-            <StackPanel Name="KeyboardRow3">
-                <Button Content="I" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-                <Button Content="J" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-                <Button Content="K" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-                <Button Content="L" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-            </StackPanel>
-            <StackPanel Name="KeyboardRow4">
-                <Button Content="M" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-                <Button Content="N" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-                <Button Content="O" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-                <Button Content="P" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-            </StackPanel>
-            <StackPanel Name="KeyboardRow5">
-                <Button Content="Q" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-                <Button Content="R" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-                <Button Content="S" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-                <Button Content="T" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-            </StackPanel>
-            <StackPanel Name="KeyboardRow6">
-                <Button Content="U" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-                <Button Content="V" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-                <Button Content="W" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-                <Button Content="X" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-            </StackPanel>
-            <StackPanel Name="KeyboardRow7">
-                <Button Content="Y" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-                <Button Content="Z" Width="35" Height="35" Click="Button_Click" Style="{DynamicResource ButtonWpfStyle}" Margin="1"/>
-            </StackPanel>
-        </WrapPanel>
+        
 
         <!--<Rectangle Panel.ZIndex="-1" Grid.ColumnSpan="3" Grid.RowSpan="2">
             <Rectangle.Fill>
